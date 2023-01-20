@@ -1,15 +1,19 @@
 export function renderBeanieBaby(beanieBaby) {
     const li = document.createElement('li');
     const img = document.createElement('img');
+    const h3 = document.createElement('h3');
+    const p = document.createElement('p');
 
     img.src = `${beanieBaby.image}`;
-    li.classList.add('beanie-baby');
+    h3.textContent = `${beanieBaby.title}`;
+    p.textContent = `${beanieBaby.astroSign}`;
 
-    li.append(img);
+    li.classList.add('beanie-baby');
+    li.append(img, h3, p);
     return li;
 }
 
-export function renderBeanieBabyOption(sign) {
+export function renderZodiacs(sign) {
     const option = document.createElement('option');
     option.value = sign.name;
     option.textContent = sign.name;

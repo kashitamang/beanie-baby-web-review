@@ -1,6 +1,6 @@
 /* Imports */
 import { getBeanieBabies, getZodiacs } from './fetch-utils.js';
-import { renderBeanieBaby, renderBeanieBabyOption } from './render-utils.js';
+import { renderBeanieBaby, renderZodiacs } from './render-utils.js';
 
 /* Get DOM Elements */
 const beanieBabiesEl = document.querySelector('.beanie-baby-list');
@@ -15,16 +15,22 @@ window.addEventListener('load', async () => {
     const response = await getBeanieBabies();
     beanieBabies = response;
     console.log(response);
+    findBeanieBabies();
 
     const zodiacResponse = await getZodiacs();
     signs = zodiacResponse;
-    console.log(zodiacResponse);
 
     displayBeanieBabies();
-    displayBeanieBabyOptions();
+    displayZodiacOptions();
 });
 
 /* Display Functions */
+
+async function findBeanieBabies(sign) {
+    const response = await getZodiacs(sign);
+    signs = response.data;
+    displayBeanieBabies();
+}
 
 function displayBeanieBabies() {
     for (const beanieBaby of beanieBabies) {
@@ -33,9 +39,9 @@ function displayBeanieBabies() {
     }
 }
 
-function displayBeanieBabyOptions() {
+function displayZodiacOptions() {
     for (const sign of signs) {
-        const option = renderBeanieBabyOption(sign);
+        const option = renderZodiacs(sign);
         zodiacSelect.append(option);
     }
 }

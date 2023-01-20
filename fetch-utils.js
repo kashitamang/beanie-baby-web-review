@@ -7,7 +7,7 @@ const client = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 // export async functions that fetch data
 
 // gets beanie babies
-export async function getBeanieBabies() {
+export async function getBeanieBabies(sign) {
     let { data, error } = await client.from('beanie_babies').select('*');
     return data;
 }
