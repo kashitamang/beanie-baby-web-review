@@ -1,5 +1,5 @@
 /* Imports */
-import { getBeanieBabies } from './fetch-utils.js';
+import { getBeanieBabies, getZodiacs } from './fetch-utils.js';
 import { renderBeanieBaby } from './render-utils.js';
 
 /* Get DOM Elements */
@@ -7,6 +7,7 @@ const beanieBabiesEl = document.querySelector('.beanie-baby-list');
 
 /* State */
 let beanieBabies = [];
+let zodiacs = [];
 
 /* Events */
 window.addEventListener('load', async () => {
@@ -14,6 +15,10 @@ window.addEventListener('load', async () => {
     beanieBabies = response;
     console.log(response);
     displayBeanieBabies();
+
+    const zodiacResponse = await getZodiacs();
+    zodiacs = zodiacResponse;
+    console.log(zodiacResponse);
 });
 
 /* Display Functions */
