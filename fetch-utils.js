@@ -9,6 +9,5 @@ const client = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 // gets beanie babies
 export async function getBeanieBabies() {
     let { data, error } = await client.from('beanie_babies').select('*');
-    console.log(data);
     return data;
 }

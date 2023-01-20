@@ -32,4 +32,19 @@ header .logo {
 
 main {
     padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.beanie-baby-list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 80vw;
+}
+
+.beanie-baby-list img {
+    width: 200px;
+    padding: 20px;
 }
