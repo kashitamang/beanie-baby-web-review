@@ -8,3 +8,10 @@ export function renderBeanieBaby(beanieBaby) {
     li.append(img);
     return li;
 }
+
+export function renderBeanieBabyOption(sign) {
+    const option = document.createElement('option');
+    option.value = sign.name;
+    option.textContent = sign.name;
+    return option;
+}
