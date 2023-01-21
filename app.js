@@ -14,13 +14,13 @@ let signs = [];
 
 /* Events */
 window.addEventListener('load', async () => {
+    findBeanieBabies();
     const response = await getBeanieBabies();
     beanieBabies = response;
 
     const zodiacResponse = await getZodiacs();
     signs = zodiacResponse;
 
-    findBeanieBabies();
     displayBeanieBabies();
     displayZodiacOptions();
 });
@@ -28,16 +28,17 @@ window.addEventListener('load', async () => {
 searchForm.addEventListener('submit', (e) => {
     e.preventDefault();
     // WIP
-    const value = zodiacSelect.value;
-    console.log(value);
-    findBeanieBabies(value);
+    const sign = zodiacSelect.value;
+    console.log(sign);
+    findBeanieBabies(sign);
 });
 
 /* Display Functions */
 
 async function findBeanieBabies(sign) {
-    const response = await getZodiacs(sign);
+    const response = await getBeanieBabies(sign);
     signs = response;
+    console.log('response', response);
     displayBeanieBabies();
 }
 
